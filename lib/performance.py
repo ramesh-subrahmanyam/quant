@@ -9,7 +9,7 @@ def annualized_sharpe_ratio(pnl_series, periods_per_year=252):
     annualized_sharpe_ratio = sharpe_ratio * np.sqrt(periods_per_year)
     return annualized_sharpe_ratio
 
-def performance(df):
+def compute_performance(df):
     """
     Calculate performance metrics for unslipped and slipped PnL.
     
@@ -101,7 +101,7 @@ def get_yearly_slipped_performance(df):
     # Filter data for the current year
     year_df = df.loc[df.index.year == year]
     # Calculate performance for the slipped strategy
-    perf_df=performance(year_df)
+    perf_df=compute_performance(year_df)
     yearly_performance.append([year] + list(perf_df.loc["slipped", :]))
   # Combine results into a single DataFrame (assuming consistent column names)
   yearly_performance_df = pd.DataFrame(yearly_performance, columns=["year"] + list(perf_df.columns))
