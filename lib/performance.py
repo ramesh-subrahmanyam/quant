@@ -67,7 +67,7 @@ def performance(df):
         metrics['TotalPnL'].append(int(sum(pnl_per_trade)))
         
         # Calculate Average Length of a Trade
-        avg_trade_length = np.round(np.mean(trade_lengths) if trade_lengths else 0,) 2)
+        avg_trade_length = np.round(np.mean(trade_lengths) if trade_lengths else 0, 2)
         metrics['Duration'].append(avg_trade_length)
         
         # Calculate Percentage of Trades that are Wins
